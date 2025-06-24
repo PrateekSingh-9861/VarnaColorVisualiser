@@ -1,21 +1,21 @@
-# 🎨 Varna – Wall Color Visualizer
+# Varna – Wall Color Visualizer
 
 Varna is a full-stack MERN application designed to help users visualize wall colors on room images before they paint. Inspired by tools like Asian Paints Visualizer, Varna allows users to digitally apply colors to their walls, view sample designs, give feedback, and interact through a user-friendly platform.
 
 ---
 
-## 🚀 Features
+## Features
 
-### 👤 User
-- 📝 Signup / Login / Logout (with authentication)
-- 🎨 Upload room images and apply colors (like brush or bucket tools)
-- 📸 View color palette and example designs
-- 📬 Submit queries and feedback
-- 🧡 Save favorite designs (future feature)
+###  User
+-  Signup / Login / Logout (with authentication)
+-  Upload room images and apply colors (like brush or bucket tools)
+-  View color palette and example designs
+-  Submit queries and feedback
+-  Save favorite designs (future feature)
 
-### 🛠️ Admin
-- 📋 View and manage user queries and feedback
-- 🧾 Admin dashboard to track activity
+###  Admin
+-  View and manage user queries and feedback
+-  Admin dashboard to track activity
 
 ---
 
