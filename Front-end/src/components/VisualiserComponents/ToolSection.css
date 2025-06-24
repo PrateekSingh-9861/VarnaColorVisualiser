@@ -1,0 +1,28 @@
+.toolBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; 
+    padding: 0.25rem 0.5rem; 
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-radius: 0.5rem; 
+    border: 1px solid transparent; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    background-color: #ffffff; 
+    color: #000000;
+    transition: all 0.3s ease-in-out; 
+}
+
+.toolBtn:hover {
+    background-color: #9333ea; 
+    color: #ffffff;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px); 
+}
+
+.toolBtn:active {
+    background-color: #7e22ce;
+    color: #ffffff; 
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px); 
+}

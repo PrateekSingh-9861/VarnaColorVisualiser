@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+html,body{
+  overflow-x: hidden;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar{
+  display: none;
+}
+
+.kalam{
+  font-family: "Kalam", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bowlby-one{
+  font-family: "Bowlby One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.crete-round-regular {
+  font-family: "Crete Round", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
