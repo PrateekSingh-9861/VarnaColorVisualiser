@@ -181,7 +181,7 @@ const HomePage = () => {
 
             {/*contact us section  */}
             < section className="flex flex-col items-center text-white justify-center" >
-                <h3 className='sm:text-6xl text-3xl mt-8 sm:mt-12 text-black font-light text-center'>
+                <h3 className='sm:text-6xl text-4xl mt-12 px-2 sm:px-0 text-black font-light text-center'>
                     Get the right assistance for all your painting needs
                 </h3>
 
