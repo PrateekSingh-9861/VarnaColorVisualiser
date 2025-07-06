@@ -55,7 +55,7 @@ const Screen2 = React.forwardRef(({ scrollToVisualiser }, ref) => {
                 </div>
 
                 {/* div for editing area */}
-                <div className=' sm:w-[48vw] pt-16 sm:pt-0 pb-6 flex flex-col text-center'>
+                <div className=' sm:w-[48vw] pt-16 sm:pt-0 pb-6 sm:pb-0 flex flex-col text-center'>
                     <ToolSection selectedImage={selectedImage} selectedColor={selectedColor} />
                 </div>
 

@@ -67,7 +67,7 @@ const renderPalette = () => {
   
 
   return (
-    <div className="flex justify-center pt-16 mb-20 flex-col sm:px-4 items-center gap-1.5">
+    <div className="flex justify-center pt-16 sm:pt-10 mb-10 flex-col sm:px-4 items-center gap-1.5">
       <h1 className='crete-round-regular text-[1.5em]'>SCROLL TO VIEW MORE</h1>
       <div className="sm:h-[77vh] h-[65vh] bg-white px-1 sm:px-4 sm:py-4 py-2 rounded-4xl 
       w-full overflow-y-auto border custom-scrollbar">
