@@ -7,15 +7,15 @@ const ImgCarousel = ({ images }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
+    }, 4000);
     
     return () => clearInterval(interval); // Cleanup on unmount
   }, [images.length]);
 
   return (
-    <div className="relative mt-16 w-full">
+    <div className="relative sm:mt-16 mt-12 w-full">
       {/* Carousel wrapper */}
-      <div className="relative h-[55vh] rounded-lg">
+      <div className="relative sm:h-[55vh] h-[30vh] rounded-lg">
         {images.map((image, index) => (
           <img
             key={index}

@@ -27,20 +27,20 @@ const services = [
 
 const ServiceCard = () => {
   return (
-    <div className="flex flex-wrap justify-center gap-10 py-10 px-6">
+    <div className="flex flex-col sm:flex sm:flex-row justify-center px-2 py-2 gap-1 sm:gap-10 sm:py-10">
       {services.map((service, index) => (
-        <div key={index} className="relative w-[25vw] h-[65vh] rounded-2xl overflow-hidden ">
+        <div key={index} className="relative sm:w-[25vw] sm:h-[65vh] h-[28vh] rounded-2xl overflow-hidden ">
           {/* Background Image */}
           <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
 
           {/* Colored Overlay */}
-          <div className={`absolute w-80 h-50 rounded-t-xl bottom-0 p-6 text-white ${service.overlayColor}`}>
-            <h3 className="text-3xl font-bold">{service.title}</h3>
-            <p className="text-m mt-2 font-semibold">{service.description}</p>
+          <div className={`absolute sm:w-80 sm:h-50 w-48 h-32 rounded-t-xl bottom-0 sm:p-6 p-3 text-white ${service.overlayColor}`}>
+            <h3 className="sm:text-3xl text-xl font-bold">{service.title}</h3>
+            <p className="sm:text-m text-sm sm:mt-2 font-semibold">{service.description}</p>
 
             {/* Link for Navigation */}
             <Link to={service.link}>
-              <button className="relative mt-4 px-4 py-2 text-m font-medium border border-white overflow-hidden rounded-full text-white transition-all 
+              <button className="relative sm:mt-4 mt-2 sm:px-4 sm:py-2 px-2 py-1 sm:text-m text-sm font-medium border border-white overflow-hidden rounded-full text-white transition-all 
                 duration-500 hover:text-black before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-gradient-to-r before:from-white before:to-white 
                 before:transition-all before:duration-500 hover:before:w-full">
                 <span className="relative z-10">Explore Now →</span>

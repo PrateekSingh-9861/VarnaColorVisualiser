@@ -94,7 +94,7 @@ const HomePage = () => {
         <>
             {/* Preloader */}
             {loading && (<div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50"
-                style={{ background: "#FEFCFE url(/preloader.gif) no-repeat center", backgroundSize: "45%", }}>
+                style={{ background: "#FEFCFE url(/preloader.gif) no-repeat center", backgroundSize: window.innerWidth < 640 ? "120%" : "30%", }}>
             </div>)}
 
             <header>
@@ -104,7 +104,7 @@ const HomePage = () => {
                 </div>
             </header>
 
-            <nav className='h-12 sm:h-16 w-full flex text-white bg-[#17111f] border-b-2 justify-between items-centerp-2 '>
+            <nav id="nav" className='h-12 sm:h-16 w-full flex text-white bg-[#17111f] border-b-2 justify-between items-centerp-2 '>
                 <div className='flex items-center'>
                     <img src="/images/logo.png" alt="" className='h-10 w-10 sm:h-14 sm:w-14' />
                     <h1 className='text-2xl sm:text-4xl crete-round-regular font-bold'>VARNA</h1>
@@ -124,63 +124,70 @@ const HomePage = () => {
                     </a>
                 </div>
 
-                {/* <button className="relative overflow-hidden px-4 py-2 rounded-full text-white bg-orange-300 transition-all duration-500 hover:text-black
-                        before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-gradient-to-r before:from-white before:to-white before:transition-all 
-                        before:duration-500 hover:before:w-full">
-                            <span className="relative z-10">SIGN UP</span>
-                        </button> */}
-
+                {/* Mobile Hamburger Icon */}
                 <div className="sm:hidden p-2">
                     <i className="ri-menu-line text-2xl cursor-pointer"
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    ></i>
+                        onClick={() => setIsMobileMenuOpen(true)}></i>
                 </div>
-            </nav >
 
-            {/* intro container    */}
+                 {/* Mobile Dropdown Menu */}
+            {isMobileMenuOpen && (
+                <div className="fixed h-screen inset-0 w-full bg-[#17111f] z-50 flex flex-col items-center justify-center space-y-8 text-white text-2xl">
+                    <i className="ri-close-line text-4xl absolute top-4 right-6" onClick={() => setIsMobileMenuOpen(false)}></i>
+                    <a onClick={() => setIsMobileMenuOpen(false)} href="#discover-section">Paints & Colours</a>
+                    <a onClick={() => setIsMobileMenuOpen(false)} href="#services">Services</a>
+                    <a onClick={() => setIsMobileMenuOpen(false)} href="#tools">Tools</a>
+                    <a onClick={() => setIsMobileMenuOpen(false)} href="#about">About Us</a>
+                </div>
+            )}
+
+
+        </nav >
+
+            {/* intro container    */ }
             < section >
-                <div className="relative flex items-center w-full">
-                    <img alt="" className="w-full h-[43vh] sm:h-[85vh]" src="/images/IMG-20250130-WA0084.jpg" />
-                    <div className="absolute flex flex-col items-center p-10 sm:p-8 sm:left-40 ">
-                        <h1 className="text-white text-lg sm:text-4xl font-bold">
-                            PRESENTING
-                        </h1>
-                        <h2 className="text-white font-bold text-4xl sm:text-8xl font-serif mt-1 sm:mt-4">
-                            VARNA | <span className='kalam'>वर्ण</span>
-                        </h2>
-                        <p className="text-white font-bold text-2lg mt-2 sm:mt-4">
-                            HERITAGE OF INDIAN WHITES &amp; IVORY
-                        </p>
-                        <p className="text-white font-bold text-2lg mt-1 sm:mt-4 text-center">
-                            Rich. Luxurious. And understated. <br /> Add a touch of India’s opulent history to your space.
-                        </p>
-                        <button className="relative overflow-hidden py-2 px-4 sm:py-3 mt-6 rounded-full font-bold text-black bg-[#F6F6F6] transition-all duration-500 hover:text-white
+            <div className="relative flex items-center w-full">
+                <img alt="" className="w-full h-[43vh] sm:h-[85vh]" src="/images/IMG-20250130-WA0084.jpg" />
+                <div className="absolute flex flex-col items-center p-10 sm:p-8 sm:left-40 ">
+                    <h1 className="text-white text-lg sm:text-4xl font-bold">
+                        PRESENTING
+                    </h1>
+                    <h2 className="text-white font-bold text-4xl sm:text-8xl font-serif mt-1 sm:mt-4">
+                        VARNA | <span className='kalam'>वर्ण</span>
+                    </h2>
+                    <p className="text-white font-bold text-2lg mt-2 sm:mt-4">
+                        HERITAGE OF INDIAN WHITES &amp; IVORY
+                    </p>
+                    <p className="text-white font-bold text-2lg mt-1 sm:mt-4 text-center">
+                        Rich. Luxurious. And understated. <br /> Add a touch of India’s opulent history to your space.
+                    </p>
+                    <button className="relative overflow-hidden py-2 px-4 sm:py-3 mt-6 rounded-full font-bold text-black bg-[#F6F6F6] transition-all duration-500 hover:text-white
                             before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-gradient-to-r before:from-[#17111f] before:to-[#17111f] before:transition-all 
                             before:duration-500 hover:before:w-full">
-                            <Link to="/Signup" className="relative font-bold z-10">SIGN UP <i className="ri-arrow-right-line"></i></Link>
-                        </button>
-                        <div className="text-black mt-2  text-center flex">
-                            <Link to="/Login" className="transition-all hover:underline hover:scale-105 text-white md:text-black" href="#">
-                                Already a user <span className='text-white font-bold'> LOGIN</span>
-                            </Link>
-                        </div>
+                        <Link to="/Signup" className="relative font-bold z-10">SIGN UP <i className="ri-arrow-right-line"></i></Link>
+                    </button>
+                    <div className="text-black mt-2  text-center flex">
+                        <Link to="/Login" className="transition-all hover:underline hover:scale-105 text-white md:text-black" href="#">
+                            Already a user <span className='text-white font-bold'> LOGIN</span>
+                        </Link>
+                    </div>
 
-                    </div>
-                    <div className="hidden md:block md:absolute md:top-30 md:right-40 ">
-                        <img src="/images/logo.png" className="h-96 w-auto" alt="Varna Logo" />
-                    </div>
                 </div>
+                <div className="hidden md:block md:absolute md:top-30 md:right-40 ">
+                    <img src="/images/logo.png" className="h-96 w-auto" alt="Varna Logo" />
+                </div>
+            </div>
             </section >
 
-            {/* intro text section */}
-            < section >
-                <p className='m:mt-8 mt-4 sm:text-xl text-2sm text-center px-3 sm:px-20 sm:leading-10 leading-8 text-gray-700'>Painting your home is an exciting journey, but finding the perfect colours, high-quality products, and skilled painters—while ensuring a hassle-free experience—can be overwhelming.
-                    That’s where Varna comes in! Our goal is to transform your home with expert painting services, making the process seamless, safe, and enjoyable.
-                    With Varna, your walls become a canvas for creativity and elegance. Let us bring your vision to life with precision and professionalism.</p>
+    {/* intro text section */ }
+    < section >
+    <p className='m:mt-8 mt-4 sm:text-xl text-2sm text-center px-3 sm:px-20 sm:leading-10 leading-8 text-gray-700'>Painting your home is an exciting journey, but finding the perfect colours, high-quality products, and skilled painters—while ensuring a hassle-free experience—can be overwhelming.
+        That’s where Varna comes in! Our goal is to transform your home with expert painting services, making the process seamless, safe, and enjoyable.
+        With Varna, your walls become a canvas for creativity and elegance. Let us bring your vision to life with precision and professionalism.</p>
             </section >
 
-            {/*contact us section  */}
-            < section className="flex flex-col items-center text-white justify-center" >
+    {/*contact us section  */ }
+    < section className = "flex flex-col items-center text-white justify-center" >
                 <h3 className='sm:text-6xl text-4xl mt-12 px-2 sm:px-0 text-black font-light text-center'>
                     Get the right assistance for all your painting needs
                 </h3>
@@ -237,8 +244,8 @@ const HomePage = () => {
                 </div>
             </section >
 
-            {/* Video section */}
-            < section className='sm:mt-20 mt-16 w-full relative' >
+    {/* Video section */ }
+    < section className = 'sm:mt-20 mt-16 w-full relative' >
                 <div className='relative'>
                     <video
                         src='/paint-video.mp4' autoPlay loop muted id="video"
@@ -252,28 +259,28 @@ const HomePage = () => {
                 <img src="/images/logo.png" alt="" className="h-20 sm:block hidden w-20 absolute bottom-2 sm:bottom-6 z-10 sm:right-8" />
             </section >
 
-            {/* discover cards section */}
-            < section id='discover-section' >
-                <DiscoverCard />
+    {/* discover cards section */ }
+    < section id = 'discover-section' >
+        <DiscoverCard />
             </section >
 
-            {/* service cards section  */}
-            < section className='flex flex-col items-center justify-center' id='services' >
-                <h2 className='text-6xl font-light pt-16'>Explore our services</h2>
+    {/* service cards section  */ }
+    < section className = 'flex flex-col items-center justify-center' id = 'services' >
+                <h2 className='sm:text-6xl text-4xl font-light pt-12 sm:pt-16'>Explore our services</h2>
                 <ServiceCard />
             </section >
 
-            {/* img carousel */}
-            < section className='' >
-                <ImgCarousel images={carouselImages} />
+    {/* img carousel */ }
+    < section className = '' >
+        <ImgCarousel images={carouselImages} />
             </section >
 
-            <section className='flex flex-col bg-[#F6F6F6] pb-18 items-center justify-center' id='tools' >
-                <h2 className='text-6xl font-light pt-16'>Explore our Tools</h2>
-                <ToolCard />
-            </section>
+    <section className='flex flex-col items-center justify-center' id='tools' >
+        <h2 className='sm:text-6xl text-4xl font-light pt-16'>Explore our Tools</h2>
+        <ToolCard />
+    </section>
 
-            {/* <Link to="/Admin" className="transition-all hover:underline hover:scale-105" href="#">
+{/* <Link to="/Admin" className="transition-all hover:underline hover:scale-105" href="#">
                 GO to adminpage
             </Link >
             <Link to="/UserDashboard" className="transition-all hover:underline hover:scale-105" href="#">
@@ -284,22 +291,22 @@ const HomePage = () => {
                 <AboutUs />
             </section>
 
-            <footer className="bg-[#17111f] text-white mt-20 px-6 sm:px-10 pt-12 pb-8">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <footer className="bg-[#17111f] text-white sm:mt-20 px-6 sm:px-10 pt-12 pb-8">
+                <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8">
 
                     {/* Brand Description */}
-                    <div className="md:col-span-2">
-                        <h3 className="text-2xl font-bold mb-4">VARNA</h3>
-                        <p className="text-lg text-gray-400 max-w-md">
+                    <div className=" col-span-2">
+                        <h3 className="text-4xl font-bold mb-2 sm:mb-4">VARNA</h3>
+                        <p className="text-xl text-gray-400 max-w-md">
                             Bringing colour, art, and heritage to life through professional painting services and visualization tools.
                         </p>
                     </div>
 
                     {/* Navigation */}
                     <div>
-                        <h4 className="text-lg font-semibold mb-3">Navigation</h4>
+                        <h4 className="sm:text-lg text-xl font-semibold mb-3">Navigation</h4>
                         <ul className="space-y-2 text-gray-300">
-                            <li><Link to="/" className="hover:text-white transition">Home</Link></li>
+                            <li><a href="#nav" className="hover:text-white transition">Home</a></li>
                             <li><Link to="/visualiser" className="hover:text-white transition">Visualizer</Link></li>
                             <li><a href="#services" className="hover:text-white transition">Services</a></li>
                             <li><a href="#tools" className="hover:text-white transition">Tools</a></li>
@@ -309,7 +316,7 @@ const HomePage = () => {
 
                     {/* Support */}
                     <div>
-                        <h4 className="text-lg font-semibold mb-3">Support</h4>
+                        <h4 className="sm:text-lg text-xl font-semibold mb-3">Support</h4>
                         <ul className="space-y-2 text-gray-300">
                             <li><Link to="/login" className="hover:text-white transition">Login</Link></li>
                             <li><Link to="/signup" className="hover:text-white transition">Sign Up</Link></li>
