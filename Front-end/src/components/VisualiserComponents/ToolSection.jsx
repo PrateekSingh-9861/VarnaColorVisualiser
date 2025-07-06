@@ -211,7 +211,7 @@ const ToolSection = ({ selectedImage, selectedColor }) => {
                 ctx.stroke();
             }
             else if (tool === "eraser") {
-                ctx.globalCompositeOperation = "destination-out"; 
+                ctx.globalCompositeOperation = "destination-out";
                 ctx.lineWidth = size;
                 ctx.lineTo(event.nativeEvent.offsetX, event.nativeEvent.offsetY);
                 ctx.stroke();
@@ -283,12 +283,12 @@ const ToolSection = ({ selectedImage, selectedColor }) => {
 
     return (
         <>
-            <h1 className='text-[3.5em] crete-round-regular'>Varna Visualiser</h1>
-            <div className='flex flex-col gap-3'>
-                <div className='bg-white h-[77vh] relative border ' onDrop={handleDrop}
+            <h1 className='sm:text-[3.5em] text-4xl crete-round-regular'>Varna Visualiser</h1>
+            <div className='flex flex-col pt-2 sm:pt-0 gap-3'>
+                <div className='bg-white sm:h-[77vh] h-[50vh] relative border ' onDrop={handleDrop}
                     onDragOver={handleDragOver}>
-                    <div className='absolute w-full h-full flex flex-col items-center justify-center gap-1 pt-8'>
-                        <img src='/images/upload-img.png' alt="Upload Image" className="h-46 w-46" />
+                    <div className='absolute w-full h-full flex flex-col items-center justify-center gap-1 sm:pt-8'>
+                        <img src='/images/upload-img.png' alt="Upload Image" className="sm:h-46 sm:w-46 h-36 w-36" />
                         <h1 >click on Upload Button</h1>
                         <h4 className='text-zinc-600'>or Drag and Drop files here</h4>
                     </div>
@@ -297,26 +297,32 @@ const ToolSection = ({ selectedImage, selectedColor }) => {
                         onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}
                         className="absolute w-full h-full cursor-crosshair"></canvas>
                 </div>
-                <div className='flex justify-center gap-5 items-center pl-2.5 pr-2.5'>
+                <div className="grid sm:flex justify-center sm:gap-5 gap-2 grid-cols-6 items-center">
                     <button onClick={() => fileInputRef.current.click()} className="toolBtn">
-                        <i className="ri-chat-upload-line"></i>Upload</button>
+                        <i className="ri-chat-upload-line"></i>  <span className="btn-text">Upload</span>
+                    </button>
 
                     <button onClick={() => handleToolClick('brush')} className="toolBtn">
-                        <i className="ri-paint-brush-fill"></i>Brush</button>
+                        <i className="ri-paint-brush-fill"></i>  <span className="btn-text">Brush</span>
+                    </button>
 
                     <button onClick={() => setTool("bucket")} className="toolBtn">
-                        <i className="ri-paint-fill"></i>Bucket</button>
+                        <i className="ri-paint-fill"></i> <span className="btn-text">Bucket</span>
+                    </button>
 
                     <button onClick={() => handleToolClick('eraser')} className="toolBtn">
-                        <i className="ri-eraser-fill"></i>Eraser</button>
+                        <i className="ri-eraser-fill"></i> <span className="btn-text">Eraser</span>
+                    </button>
 
                     <button onClick={undo} className="toolBtn">
-                        <i className="ri-arrow-go-back-fill"></i>Undo</button>
+                        <i className="ri-arrow-go-back-fill"></i> <span className="btn-text">Undo</span>
+                    </button>
 
                     <button onClick={redo} className="toolBtn">
-                        <i className="ri-arrow-go-forward-fill"></i>Redo</button>
-
+                        <i className="ri-arrow-go-forward-fill"></i> <span className="btn-text">Redo</span>
+                    </button>
                 </div>
+
             </div>
             {showSizePopup && (
                 <div className="fixed bottom-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-lg shadow-lg">

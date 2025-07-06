@@ -8,7 +8,7 @@ const Examples = ({onImageSelect}) => {
 
     return (
         <>
-            <div className='flex flex-col pl-4 pr-4 h-full items-center pt-10 gap-2'>
+            <div className='flex flex-col px-4 h-full items-center sm:pt-10 gap-1 sm:gap-2'>
             <h1 className='crete-round-regular text-[1.5em]'>USE OUR PHOTOS</h1>
                 <ImgCard
                     heading="Bedrooms:"

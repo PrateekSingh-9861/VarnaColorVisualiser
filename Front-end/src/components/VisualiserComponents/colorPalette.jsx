@@ -23,36 +23,53 @@ const ColorPalette = ({ onColorSelect }) => {
   }, []);
   
   // Render color palette
-  const renderPalette = () => {
-    console.log("Rendering Colors:", categories); // Debugging log
-    return categories.length > 0 ? (
-      categories.map(group => (
-        <div className="mb-8" key={group.name}>
-          <h2 className="text-center font-bold mb-4">{group.name}</h2>
-          <div className="grid grid-cols-6 gap-1 overflow-y-auto max-h-[500px] custom-scrollbar">
+const renderPalette = () => {
+  return categories.length > 0 ? (
+    <div
+      className="flex overflow-x-auto snap-x snap-mandatory sm:flex-col sm:overflow-visible w-full"
+    >
+      {categories.map(group => (
+        <div
+          key={group.name}
+          className="snap-start flex-shrink-0 w-full px-4 sm:px-0 sm:w-auto sm:mb-8 mb-4"
+        >
+          <h2 className="text-center font-bold mb-2">{group.name}</h2>
+
+          {/* Scroll hint for mobile only */}
+          <p className="text-xs text-center text-gray-500 block sm:hidden mb-2">
+            Swipe left/right to see more categories →
+          </p>
+
+          <div
+            className="
+              grid grid-cols-6 sm:grid-cols-6
+              gap-2
+              px-1
+            "
+          >
             {group.colors.map((color, index) => (
               <button
-                className="relative aspect-square rounded-lg "
                 key={index}
-                style={{ backgroundColor: color.rgb }} // Set button background color
-                onClick={() => onColorSelect(color.rgb)} // Callback when color is selected
-              >
-                {/* No need to display color code, just the color */}
-              </button>
+                className="aspect-square rounded-lg"
+                style={{ backgroundColor: color.rgb }}
+                onClick={() => onColorSelect(color.rgb)}
+              />
             ))}
           </div>
         </div>
-      ))
-    ) : (
-      <p className="text-center">No colors available.</p>
-    );
-  };
+      ))}
+    </div>
+  ) : (
+    <p className="text-center">No colors available.</p>
+  );
+};
+
   
 
   return (
-    <div className="flex justify-center pt-10 flex-col pl-4 pr-4 items-center gap-1.5">
+    <div className="flex justify-center pt-16 mb-20 flex-col sm:px-4 items-center gap-1.5">
       <h1 className='crete-round-regular text-[1.5em]'>SCROLL TO VIEW MORE</h1>
-      <div className="h-[77vh] bg-white pr-4 pl-4 pb-4 pt-3 rounded-4xl 
+      <div className="sm:h-[77vh] h-[65vh] bg-white px-1 sm:px-4 sm:py-4 py-2 rounded-4xl 
       w-full overflow-y-auto border custom-scrollbar">
         {renderPalette()}
       </div>
