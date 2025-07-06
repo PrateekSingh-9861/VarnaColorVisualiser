@@ -49,80 +49,92 @@ const AdminPanel = () => {
 
   return (
     <>
-      <h1 className="text-5xl font-bold text-center">Admin Dashboard</h1>
-
-      <div className="p-6 space-x-4 flex  ">
-        {/* Users Table */}
-        <section>
-          <h2 className="text-2xl p-4 text-center font-semibold">User Accounts</h2>
-          <table className="w-full border">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="p-2">Name</th>
-                <th>Email</th>
-                <th>Created</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((u) => (
-                <tr key={u._id} className="border-t">
-                  <td className="p-2">{u.name || "No Name"}</td>
-                  <td>{u.email || "No Email"}</td>
-                  <td>{formatDate(u.createdAt)}</td>
-                  <td>
-                    <button
-                      className="bg-red-500 text-white px-2 py-1 rounded"
-                      onClick={() => handleDelete("users", u._id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-
-        {/* Contact Queries */}
-        <section>
-          <h2 className="text-2xl text-center font-semibold p-4">Queries / Contact Us</h2>
-          <ul className="space-y-2">
-            {contacts.map((c) => (
-              <li key={c._id} className="border p-2">
-                <strong>{c.fullName || "Unnamed User"}</strong> ({c.email}): {c.message}
-                <div className="text-sm text-gray-500">{formatDate(c.createdAt)}</div>
-                <button
-                  className="bg-red-500 text-white px-2 py-1 mt-1 rounded"
-                  onClick={() => handleDelete("contacts", c._id)}
-                >
-                  Delete
-                </button>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Feedbacks */}
-        <section>
-          <h2 className="text-2xl text-center font-semibold p-4">User Feedbacks</h2>
-          <ul className="space-y-2">
-            {feedbacks.map((f) => (
-              <li key={f._id} className="border p-2">
-                <strong>{f.name}</strong> ({f.email}) — <span className="text-gray-600 text-sm">ID: {f._id}</span>
-                <div className="mt-1">{f.message}</div>
-                <div className="text-sm text-gray-500">{formatDate(f.createdAt)}</div>
-                <button
-                  className="bg-red-500 text-white px-2 py-1 mt-1 rounded"
-                  onClick={() => handleDelete("feedbacks", f._id)}
-                >
-                  Delete
-                </button>
-              </li>
-            ))}
-          </ul>
-        </section>
+      <div className="sm:hidden fixed inset-0 bg-[#c5c5c5]  flex flex-col items-center p-6 text-center">
+        <h2 className="text-4xl uppercase font-bold mt-28 mb-16">Screen Too Small</h2>
+        <p className="text-2xl">
+          The Admin Dashboard is best viewed on a larger screen.
+          <br /> <br />
+          Please use a desktop or tablet device for full access.
+        </p>
       </div>
+
+
+      <main className="hidden sm:block">
+        <h1 className="text-5xl font-bold text-center">Admin Dashboard</h1>
+
+        <div className="p-6 space-x-4 flex  ">
+          {/* Users Table */}
+          <section>
+            <h2 className="text-2xl p-4 text-center font-semibold">User Accounts</h2>
+            <table className="w-full border">
+              <thead>
+                <tr className="bg-gray-200">
+                  <th className="p-2">Name</th>
+                  <th>Email</th>
+                  <th>Created</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.map((u) => (
+                  <tr key={u._id} className="border-t">
+                    <td className="p-2">{u.name || "No Name"}</td>
+                    <td>{u.email || "No Email"}</td>
+                    <td>{formatDate(u.createdAt)}</td>
+                    <td>
+                      <button
+                        className="bg-red-500 text-white px-2 py-1 rounded"
+                        onClick={() => handleDelete("users", u._id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </section>
+
+          {/* Contact Queries */}
+          <section>
+            <h2 className="text-2xl text-center font-semibold p-4">Queries / Contact Us</h2>
+            <ul className="space-y-2">
+              {contacts.map((c) => (
+                <li key={c._id} className="border p-2">
+                  <strong>{c.fullName || "Unnamed User"}</strong> ({c.email}): {c.message}
+                  <div className="text-sm text-gray-500">{formatDate(c.createdAt)}</div>
+                  <button
+                    className="bg-red-500 text-white px-2 py-1 mt-1 rounded"
+                    onClick={() => handleDelete("contacts", c._id)}
+                  >
+                    Delete
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* Feedbacks */}
+          <section>
+            <h2 className="text-2xl text-center font-semibold p-4">User Feedbacks</h2>
+            <ul className="space-y-2">
+              {feedbacks.map((f) => (
+                <li key={f._id} className="border p-2">
+                  <strong>{f.name}</strong> ({f.email}) — <span className="text-gray-600 text-sm">ID: {f._id}</span>
+                  <div className="mt-1">{f.message}</div>
+                  <div className="text-sm text-gray-500">{formatDate(f.createdAt)}</div>
+                  <button
+                    className="bg-red-500 text-white px-2 py-1 mt-1 rounded"
+                    onClick={() => handleDelete("feedbacks", f._id)}
+                  >
+                    Delete
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+      </main>
     </>
 
   );

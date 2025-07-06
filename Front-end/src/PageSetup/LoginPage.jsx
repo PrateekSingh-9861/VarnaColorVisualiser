@@ -41,16 +41,19 @@ const LoginPage = () => {
   };
 
   return (
-    <motion.div className="h-screen w-screen flex items-center justify-center bg-[#F6F6F6]" initial="hidden" animate="visible" variants={sharedVariants}>
-      <div className="w-[60vw] h-[75vh] flex-col rounded-2xl bg-[#EDEAE0] overflow-hidden border shadow-black shadow-2xl">
-        <motion.h1 className="text-6xl crete-round-regular text-center mt-6 mb-6" variants={sharedVariants}>
+    <motion.div className="h-screen w-screen px-4 flex pt-16 sm:pt-0 sm:items-center justify-center bg-[#F6F6F6]" initial="hidden" animate="visible" variants={sharedVariants}>
+      <div className="sm:w-[60vw] w-full sm:h-[70vh] h-[68vh] flex-col rounded-2xl bg-[#EDEAE0] overflow-hidden border shadow-black shadow-2xl">
+        <motion.h1 className="sm:text-5xl text-4xl crete-round-regular text-center mt-6" variants={sharedVariants}>
           LOGIN
         </motion.h1>
-        <div className="flex">
-          <motion.div className="w-[50%] flex items-center justify-center" variants={sharedVariants}>
-            <img src="/images/img-signuppage.png" alt="Login Illustration" className="h-full p-6 object-cover" />
+
+        <div className="flex sm:flex-row flex-col justify-center items-center">
+          {/* Image Section */}
+          <motion.div className="w-full sm:w-[50%] flex justify-center items-center " variants={sharedVariants}>
+            <img src="/images/img-signuppage.png" alt="Feedback Illustration" className="w-[50%] pt-3 sm:p-6 sm:w-[80%] h-auto object-cover" />
           </motion.div>
-          <motion.div className="w-[50%] flex flex-col pt-8 justify-center px-8" variants={sharedVariants}>
+
+          <motion.div className="w-full sm:w-[50%] flex flex-col pt-8 justify-center px-8" variants={sharedVariants}>
             <form onSubmit={handleSubmit} className="flex flex-col space-y-5 w-full">
               <motion.div className="flex flex-col" variants={sharedVariants}>
                 <label htmlFor="email" className="text-sm font-medium mb-1">Email</label>
