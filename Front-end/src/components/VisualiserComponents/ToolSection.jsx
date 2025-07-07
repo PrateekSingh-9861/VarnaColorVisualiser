@@ -325,21 +325,11 @@ const ToolSection = ({ selectedImage, selectedColor }) => {
 
             </div>
             {showSizePopup && (
-                <div className="fixed bottom-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-lg shadow-lg">
+                <div className="fixed bottom-1 left-1/2 transform flex items-center flex-col -translate-x-1/2 -translate-y-1/2 bg-white sm:p-4 p-2 rounded-lg shadow-lg">
                     <h3>Select Size</h3>
-                    <input
-                        type="range"
-                        min="10"
-                        max="50"
-                        step="10"
-                        value={size}
-                        onChange={(e) => setSize(Number(e.target.value))}
-                    />
+                    <input type="range" min="10" max="50" step="10" value={size} onChange={(e) => setSize(Number(e.target.value))}/>
                     <p>Selected Size: {size}</p>
-                    <button
-                        onClick={() => handleSizeSelect(size)}
-                        className="toolBtn"
-                    >
+                    <button onClick={() => handleSizeSelect(size)} className="toolBtn">
                         Apply
                     </button>
                 </div>
